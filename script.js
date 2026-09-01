@@ -9,8 +9,8 @@ document.getElementById('mamboBtn').addEventListener('click', function() {
     sound.currentTime = 0;
     sound.play().catch(err => console.log('Sound play failed:', err));
     
-    // Hide after 3 seconds
-    setTimeout(() => {
+    // Hide after the sound finishes
+    sound.onended = function() {
         container.classList.add('hidden');
-    }, 3000);
+    };
 });
